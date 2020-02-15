@@ -14,3 +14,9 @@ Numpy
 Random
 
 Time
+
+#### Upcoming updates
+
+Loot and reward system
+
+
