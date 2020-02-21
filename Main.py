@@ -5,6 +5,7 @@ import text
 import random
 text.start()
 name=text.name()
+temp=0
 while True:
     classe=text.classe().lower()
     if classe=="heavyhitter":
@@ -47,4 +48,116 @@ while hero.health>0:
         print(key,":",value)
     while hero.health>0 and monster.health>0:
         text.simple("You get to attack! What do you do?")
-        do=input()
+        while True:
+                do=input()
+                if do.lower()=="beetlejuice":
+                    text.simple("You're quite handsome!")
+                if do.lower()=="stats":
+                    text.simple("Your stats are:")
+                    for key,value in stats.items():
+                        print(key,":",value)
+                    text.simple("Monster stats are: ")
+                    for key,value in enstats.items():
+                        print(key,":",value)
+                if hero.__class__.__name__=="Necro" and do.lower()=="drain":
+                   temp=hero.drain()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="Necro" and do.lower()=="truestrike":
+                   temp=hero.trueStrike()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="Necro" and do.lower()=="enhance":
+                   temp=hero.enhance()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="GlassCannon" and do.lower()=="shatter":
+                   temp=hero.shatter()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="GlassCannon" and do.lower()=="helplessstrike":
+                   temp=hero.helplessStrike()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="GlassCannon" and do.lower()=="energeticstrike":
+                   temp=hero.energeticStrike()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="HeavyHitter" and do.lower()=="heavyhit":
+                   temp=hero.heavyhit()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="HeavyHitter" and do.lower()=="hit":
+                   temp=hero.hit()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="HeavyHitter" and do.lower()=="jab":
+                   temp=hero.jab()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                elif hero.__class__.__name__=="HeavyHitter" and do.lower()=="recover":
+                   temp=hero.recover()
+                   monster.health-=temp*temp/(monster.armor+temp)
+                   if monster.health<=0:
+                       break
+                   temp=monster.attack-hero.armor
+                   if temp<0:
+                       temp=0
+                   hero.health=monster.attack-temp
+                else:
+                    text.simple("You can't do that or you just typed nonsense. Try again.")
+                    continue
+                break
+    if hero.health<=0:
+            break
+    if monster.health<=0:
+        text.simple("You beat {} round(s). Time for the next one!".format(round))
+        points+=1
+        round+=1
+        continue
+text.simple("You had a good game, but it's over!")

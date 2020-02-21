@@ -10,7 +10,7 @@ class Wild:
         self.armor=0
     def getaName(self):
         names=["Grizzly","Goblin","Hobgoblin","Darth Vader","Dwight","Valakas","Antharas", "Onyxxia", "Queen Bee", "Zerg"]
-        x=random.randint(0,10)
+        x=random.randint(0,9)
         self.name = names[x]
     def assignPoints(self,points):
         self.health=points//3
@@ -36,7 +36,7 @@ class Tame:
         self.armor=0
     def getaName(self):
         names=["Starved Programmer", "Angry Analyst", "Lawless Judge", "Nice Guy"]
-        x=random.randint(0,4)
+        x=random.randint(0,3)
         self.name = names[x]
     def assignPoints(self,points):
         self.health=points//2
